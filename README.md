@@ -1,4 +1,4 @@
-# Fidelity+
+# Fidelity++
 Adds enhancements to fidelity.com.
 
 # Features
