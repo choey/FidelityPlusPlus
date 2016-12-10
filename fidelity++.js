@@ -34,7 +34,7 @@ function keyStatisticsExtension()
   var divPerFreeCashFlow = 100 * marketCap * yieldRate / freeCashFlow;
   var divPerFreeCashFlowRounded = Math.round(divPerFreeCashFlow * 100) / 100;
   console.debug("dividends / free cash flow: " + divPerFreeCashFlowRounded + "%");
-  $("#box11 .col2").text($("#box11 .col2").text() + "\n" + divPerFreeCashFlowRounded + "% FCF");    
+  $("#box11 .col2").html($("#box11 .col2").text() + "<br />" + divPerFreeCashFlowRounded + "% FCF");    
 }
 
 /**
