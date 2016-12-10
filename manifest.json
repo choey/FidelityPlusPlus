@@ -1,0 +1,16 @@
+{
+  "name": "Fidelity++",
+  "description": "Extension for fidelity.com",
+  "version": "1.0",
+  "permissions": [
+    "activeTab"
+  ],
+  "content_scripts": [ 
+    {
+      "js":        [ "jquery-3.1.1.min.js", "fidelity.js" ],
+      "matches":   [ "https://*.fidelity.com/*"],
+      "run_at":    "document_end"
+    } 
+  ],
+  "manifest_version": 2
+}
