@@ -7,7 +7,10 @@ if (document.URL.indexOf('oftop/portfolio') > -1)
   var positionsTab = $('.tabs--tab-link')[3];
   $(positionsTab).click(function() {
     clearInterval(positionsTimer);
-    positionsTimer =  setInterval(positionsExtension, 1000);
+
+    // delay this by 2s because the "Loading Positions..." call can reset the table if positionsExtension completes too quickly (esp if memoized)
+    // kinda hacky, because if "Loading Positions..." takes longer than 2s, we'll have to bump this number again. maybe add a button?
+    positionsTimer =  setInterval(positionsExtension, 2000);
   });
   positionsTimer = setInterval(positionsExtension, 1000);
 }
