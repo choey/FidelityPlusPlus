@@ -3,6 +3,7 @@ Adds enhancements to fidelity.com.
 
 # Features
 * Show dividends per free cash flow below the dividend/yield statistic in the Key Statistics view.
+* Show average analyst rating below stock symbol in portfolio Positions tab.
 
 # Installation
 1. Clone the repository: `git clone https://github.com/choey/FidelityPlusPlus.git`
