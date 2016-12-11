@@ -1,5 +1,5 @@
 var memo = { rbi: {} };
-var keyStatTimer = setInterval(keyStatisticsExtension, 1000);
+var keyStatTimer = setInterval(keyStatisticsExtension, 100);
 var positionsTimer;
 
 if (document.URL.indexOf('oftop/portfolio') > -1)
