@@ -7,12 +7,9 @@ if (document.URL.indexOf('oftop/portfolio') > -1)
   var positionsTab = $('.tabs--tab-link')[3];
   $(positionsTab).click(function() {
     clearInterval(positionsTimer);
-
-    // delay this by 2s because the "Loading Positions..." call can reset the table if positionsExtension completes too quickly (esp if memoized)
-    // kinda hacky, because if "Loading Positions..." takes longer than 2s, we'll have to bump this number again. maybe add a button?
-    positionsTimer =  setInterval(positionsExtension, 2000);
+    positionsTimer =  setInterval(positionsExtension, 100);
   });
-  positionsTimer = setInterval(positionsExtension, 1000);
+  positionsTimer = setInterval(positionsExtension, 100);
 }
 
 function keyStatisticsExtension() {
@@ -54,7 +51,7 @@ function positionsExtension() {
     return;
   }
 
-  if ($('.magicgrid--table:eq(1)').length == 0) {
+  if ($('.magicgrid--table:eq(1)').length == 0 || $('.progress-bar').css('display') != 'none') {
     console.debug("positions table not ready. waiting...");
     return;
   }
@@ -82,7 +79,6 @@ function positionsExtension() {
       url: "https://oltx.fidelity.com/myresearch/xhr/stocks/bricklet.jhtml?brickletType=AO&securityType=EQUITY&symbol=" + symbol,
       type: "GET",
       async: false, // slower than async, but false makes use of memoization
-      headers: { Cookie: document.cookie },
       success: function (data) {
         var regexp = /"rbi-number">([^<]+)<\/div>/g;
         var match = regexp.exec(data);
